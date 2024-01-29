@@ -4416,7 +4416,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dayjs@npm:^1.8.15":
+"dayjs@npm:^1.11.10, dayjs@npm:^1.8.15":
   version: 1.11.10
   resolution: "dayjs@npm:1.11.10"
   checksum: 27e8f5bc01c0a76f36c656e62ab7f08c2e7b040b09e613cd4844abf03fb258e0350f0a83b02c887b84d771c1f11e092deda0beef8c6df2a1afbc3f6c1fade279
@@ -4923,6 +4923,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-linear-gradient@npm:~12.7.1":
+  version: 12.7.1
+  resolution: "expo-linear-gradient@npm:12.7.1"
+  peerDependencies:
+    expo: "*"
+  checksum: 7836acb751adea60de84982e394c3ca41c54110311dc5ed7ad656053a7bb5e1c5e97865cd90f0256dfbd5c700d4a80030f215adfa7d12b9dbb9c13662eacc3cd
+  languageName: node
+  linkType: hard
+
 "expo-linking@npm:~6.2.1":
   version: 6.2.2
   resolution: "expo-linking@npm:6.2.2"
@@ -4930,6 +4939,15 @@ __metadata:
     expo-constants: "npm:~15.4.3"
     invariant: "npm:^2.2.4"
   checksum: 30d750881b1003fabff17929e1b6062ed6cd243ca35cedd41082df5fd775d0c457f50e4a9e696dedc53459caac4f26d493a2819cef692633822d893c788e0f06
+  languageName: node
+  linkType: hard
+
+"expo-location@npm:^16.5.2":
+  version: 16.5.2
+  resolution: "expo-location@npm:16.5.2"
+  peerDependencies:
+    expo: "*"
+  checksum: 297f1c3d37a9ddadf6ac47dcf4045011c99ffa8fd3e9e8e48e072afcb593f318820163cd2eb36992e73beb739c5bc1fec360bccaa4161b055ff4544eb0139cb7
   languageName: node
   linkType: hard
 
@@ -10066,11 +10084,14 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.20.0"
     "@types/react": "npm:~18.2.45"
+    dayjs: "npm:^1.11.10"
     expo: "npm:^50.0.1"
     expo-blur: "npm:^12.9.1"
     expo-constants: "npm:~15.4.2"
     expo-image: "npm:^1.10.5"
+    expo-linear-gradient: "npm:~12.7.1"
     expo-linking: "npm:~6.2.1"
+    expo-location: "npm:^16.5.2"
     expo-router: "npm:~3.4.1"
     expo-splash-screen: "npm:~0.26.1"
     expo-status-bar: "npm:~1.11.1"
