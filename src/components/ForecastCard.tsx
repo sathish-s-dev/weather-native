@@ -12,7 +12,7 @@ export function ForecastCard({ item }) {
 				className='p-4 w-36 h-48 justify-center items-center rounded-[40px] bg-white'>
 				<Text className='text-lg font-bold text-primary'>{timeStamp}</Text>
 				<Image
-					source={require('../assets/images/big_rain.svg')}
+					source={require('../assets/images/sun_cloud_midrain.svg')}
 					contentFit='contain'
 					style={{ width: 75, height: 75 }}
 				/>

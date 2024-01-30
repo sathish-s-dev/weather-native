@@ -1,154 +1,66 @@
-import { Link } from 'expo-router';
+import { Home } from '@/components/Home';
+import useLocation from '@/hooks/useLocation';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import React, { useEffect } from 'react';
-import {
-	FlatList,
-	ScrollView,
-	Text,
-	TouchableOpacity,
-	View,
-} from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { Image } from 'expo-image';
-import { BlurView } from 'expo-blur';
-import { LinearGradient } from 'expo-linear-gradient';
-import { cloud, icons, mask } from '@/assets/images';
-import data from '../../data.json';
-import forecastData from '../../forecast.json';
-import { ForecastCard } from '@/components/ForecastCard';
-import {
-	requestForegroundPermissionsAsync,
-	getCurrentPositionAsync,
-} from 'expo-location';
+import { ActivityIndicator, View } from 'react-native';
+import { queryClient } from './_layout';
+// import forecastData from '../../forecast.json';
 
 export default function Page() {
-	const { current } = data;
-	const {
-		forecast: {
-			forecastday: [hour],
-		},
-	} = forecastData;
+	const location = useLocation();
 
-	const getLocation = async () => {
-		const { status } = await requestForegroundPermissionsAsync();
-		if (status === 'granted') {
-			const location = await getCurrentPositionAsync();
-			console.log(location);
-		}
-	};
-
-	const weatherItemData = [
-		{
-			title: 'humidity',
-			value: `${current.humidity} %`,
-			icon: icons.humidity,
-		},
-		{
-			title: 'wind',
-			value: `${current.wind_kph} km/h`,
-			icon: icons.wind,
-		},
-		{
-			title: 'visibility',
-			value: `${current.vis_km} km`,
-			icon: icons.visibility,
-		},
-		{
-			title: 'pressure',
-			value: `${current.pressure_mb}`,
-			icon: icons.speedometer,
-		},
-	];
+	if (location) {
+		console.log(location);
+	}
 
 	useEffect(() => {
-		getLocation();
-	}, []);
+		if (location) {
+			queryClient.invalidateQueries();
+		}
+	}, [!!location]);
 
-	console.log(typeof hour);
-	return (
-		<LinearGradient
-			start={{ x: 0, y: 0.5 }}
-			end={{ x: 0.8, y: 0 }}
-			colors={['#c9c5e7', '#c9c5e7']}
-			className='flex-1 items-center'>
-			<View className='justify-center items-center flex-[1.3]'>
-				<BlurView
-					intensity={50}
-					style={{ elevation: 4 }}
-					className='justify- items-center relative bg-primary rounded-[50px] overflow-hidden'>
-					<View className='absolute w-full h-full bg-primary -z-10' />
-					<View className='p-6 justify-center items-center'>
-						<Image
-							source={cloud}
-							style={{ width: 200, height: 200 }}
-							contentFit='cover'
-						/>
-						<Text className='text-7xl font-bold text-secondary'>
-							{current.temp_c}°
-						</Text>
-						<Text className='text-xl font-bold text-secondary'>
-							{current.condition.text}
-						</Text>
-					</View>
-				</BlurView>
+	const coords = `${location?.coords?.latitude},${location?.coords?.longitude}`;
+	const { data, isLoading } = useQuery({
+		queryKey: ['weather', coords],
+		queryFn: async () => {
+			const data = await axios.get(
+				`http://api.weatherapi.com/v1/current.json?key=1b9a89cc87ef435e8da72135230412&q=${coords}&aqi=no`
+			);
+			return data.data;
+		},
+	});
+	const { data: forecastData } = useQuery({
+		queryKey: ['forecast', coords],
+		queryFn: async () => {
+			const data = await axios.get(
+				`http://api.weatherapi.com/v1/forecast.json?key=1b9a89cc87ef435e8da72135230412&q=${coords}&days=1&aqi=no&alerts=no`
+			);
+			return data.data;
+		},
+	});
+
+	if (!location) {
+		return (
+			<View className='flex-1 items-center justify-center'>
+				<ActivityIndicator size={50} />
 			</View>
-			<BlurView
-				intensity={80}
-				className='w-full items-center flex-1 rounded-[150px]'>
-				<View
-					className='bg-white w-full max-w-md -top-20 flex-row p-8 rounded-[36px] justify-between'
-					style={{ elevation: 4 }}>
-					{weatherItemData.map((item) => (
-						<WeatherContentItem
-							key={item.title + item.value}
-							icon={item.icon}
-							value={item.value}
-							title={item.title}
-						/>
-					))}
-				</View>
-				<View className='items-start -top-10'>
-					<View className='max-h-68'>
-						<View className='flex-row justify-between'>
-							<Text className='px-10 text-xl font-bold text-slate-900 py-6'>
-								Today
-							</Text>
-							<TouchableOpacity
-								className='flex-row items-center justify-start'
-								onPress={() => {}}>
-								<Text className='text-xl font-bold text-slate-900 py-6 items-center'>
-									Next 7 Days{' '}
-								</Text>
-								<Ionicons
-									name='chevron-forward'
-									size={24}
-									color='black'
-								/>
-							</TouchableOpacity>
-						</View>
-						<FlatList
-							horizontal
-							data={hour.hour}
-							contentContainerStyle={{ paddingHorizontal: 24, columnGap: 24 }}
-							keyExtractor={(item) => item.time}
-							showsHorizontalScrollIndicator={false}
-							renderItem={({ item }) => <ForecastCard item={item} />}
-						/>
-					</View>
-				</View>
-			</BlurView>
-		</LinearGradient>
-	);
-}
+		);
+	}
 
-function WeatherContentItem({ icon, value, title }) {
+	if (!data || !forecastData || isLoading) return null;
+
+	const current = data?.current;
+	const { location: _location } = data;
+	const {
+		forecastday: [hour],
+	} = forecastData?.forecast;
+
 	return (
-		<View className='items-center gap-1'>
-			<Image
-				source={icon}
-				style={{ width: 24, height: 24 }}
-			/>
-			<Text className='text-xl font-bold text-primary/80'>{value}</Text>
-			<Text className='text-sm font-bold text-slate-300'>{title}</Text>
-		</View>
+		<Home
+			location={_location.name + ', ' + _location.region}
+			current={current}
+			hourData={hour?.hour}
+		/>
 	);
 }
