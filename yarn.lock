@@ -1700,6 +1700,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@callstack/react-theme-provider@npm:^3.0.9":
+  version: 3.0.9
+  resolution: "@callstack/react-theme-provider@npm:3.0.9"
+  dependencies:
+    deepmerge: "npm:^3.2.0"
+    hoist-non-react-statics: "npm:^3.3.0"
+  peerDependencies:
+    react: ">=16.3.0"
+  checksum: 91f21e3a2f2e70abd85d741438f61ad8d942bc787cc8f4e2b9634da9fb96903d34a90f1defd4a4d642b714503422fcab323dc71a638cb2032af1d0655907ecf6
+  languageName: node
+  linkType: hard
+
 "@expo/bunyan@npm:^4.0.0":
   version: 4.0.0
   resolution: "@expo/bunyan@npm:4.0.0"
@@ -2387,6 +2399,17 @@ __metadata:
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
   checksum: b00fc6ec54a20785263540d9e4a0e3a13d9bc54d7af49b64f6a268eba4a6560c291bd95bbaa7cf7609fdf6fd0ebae54605bb01313de3fa180b06f2a321e9a3b4
+  languageName: node
+  linkType: hard
+
+"@react-native-async-storage/async-storage@npm:^1.21.0":
+  version: 1.21.0
+  resolution: "@react-native-async-storage/async-storage@npm:1.21.0"
+  dependencies:
+    merge-options: "npm:^3.0.4"
+  peerDependencies:
+    react-native: ^0.0.0-0 || >=0.60 <1.0
+  checksum: 7860faaa0ddb849ba4019f48fba90cffea686fb8a29813379ff38af8d635d4d8e7841735c2ba53b7788fb54312f157338e5630a768e9b2339dc33c4f5b316ca7
   languageName: node
   linkType: hard
 
@@ -3181,6 +3204,16 @@ __metadata:
   dependencies:
     "@types/yargs-parser": "npm:*"
   checksum: 1e2b2673847011ce43607df690d392f137d95a2d6ea85aa319403eadda2ef4277365efd4982354d8843f2611ef3846c88599660aaeb537fa9ccddae83c2a89de
+  languageName: node
+  linkType: hard
+
+"@uidotdev/usehooks@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "@uidotdev/usehooks@npm:2.4.1"
+  peerDependencies:
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+  checksum: 7f2e1dcfcaf654841150fde36556a257afb2240bca0145586b4e1e9385b85fea108a7dd17c2cbc4c2bd46d136126ffdf84267118933120fe54ad2e028c2dfa68
   languageName: node
   linkType: hard
 
@@ -4150,7 +4183,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color-convert@npm:^1.9.0":
+"color-convert@npm:^1.9.0, color-convert@npm:^1.9.3":
   version: 1.9.3
   resolution: "color-convert@npm:1.9.3"
   dependencies:
@@ -4182,13 +4215,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color-string@npm:^1.9.0":
+"color-string@npm:^1.6.0, color-string@npm:^1.9.0":
   version: 1.9.1
   resolution: "color-string@npm:1.9.1"
   dependencies:
     color-name: "npm:^1.0.0"
     simple-swizzle: "npm:^0.2.2"
   checksum: 72aa0b81ee71b3f4fb1ac9cd839cdbd7a011a7d318ef58e6cb13b3708dca75c7e45029697260488709f1b1c7ac4e35489a87e528156c1e365917d1c4ccb9b9cd
+  languageName: node
+  linkType: hard
+
+"color@npm:^3.1.2":
+  version: 3.2.1
+  resolution: "color@npm:3.2.1"
+  dependencies:
+    color-convert: "npm:^1.9.3"
+    color-string: "npm:^1.6.0"
+  checksum: bf70438e0192f4f62f4bfbb303e7231289e8cc0d15ff6b6cbdb722d51f680049f38d4fdfc057a99cb641895cf5e350478c61d98586400b060043afc44285e7ae
   languageName: node
   linkType: hard
 
@@ -4514,6 +4557,13 @@ __metadata:
   version: 0.6.0
   resolution: "deep-extend@npm:0.6.0"
   checksum: 7be7e5a8d468d6b10e6a67c3de828f55001b6eb515d014f7aeb9066ce36bd5717161eb47d6a0f7bed8a9083935b465bc163ee2581c8b128d29bf61092fdf57a7
+  languageName: node
+  linkType: hard
+
+"deepmerge@npm:^3.2.0":
+  version: 3.3.0
+  resolution: "deepmerge@npm:3.3.0"
+  checksum: a75f4e2f95f0439c62d1e52000862fa4f0bdd78bacdcfcfd0e5bd58c65a9f91ce45c2b661a8fd9a621c732bd36764c945567c99d987f5403774ea409e6598663
   languageName: node
   linkType: hard
 
@@ -5736,6 +5786,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hoist-non-react-statics@npm:^3.3.0":
+  version: 3.3.2
+  resolution: "hoist-non-react-statics@npm:3.3.2"
+  dependencies:
+    react-is: "npm:^16.7.0"
+  checksum: 1acbe85f33e5a39f90c822ad4d28b24daeb60f71c545279431dc98c312cd28a54f8d64788e477fe21dc502b0e3cf58589ebe5c1ad22af27245370391c2d24ea6
+  languageName: node
+  linkType: hard
+
 "hosted-git-info@npm:^3.0.2":
   version: 3.0.8
   resolution: "hosted-git-info@npm:3.0.8"
@@ -6123,6 +6182,13 @@ __metadata:
   version: 3.0.3
   resolution: "is-path-inside@npm:3.0.3"
   checksum: abd50f06186a052b349c15e55b182326f1936c89a78bf6c8f2b707412517c097ce04bc49a0ca221787bc44e1049f51f09a2ffb63d22899051988d3a618ba13e9
+  languageName: node
+  linkType: hard
+
+"is-plain-obj@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "is-plain-obj@npm:2.1.0"
+  checksum: cec9100678b0a9fe0248a81743041ed990c2d4c99f893d935545cfbc42876cbe86d207f3b895700c690ad2fa520e568c44afc1605044b535a7820c1d40e38daa
   languageName: node
   linkType: hard
 
@@ -6982,6 +7048,15 @@ __metadata:
   version: 0.2.0
   resolution: "memory-cache@npm:0.2.0"
   checksum: 583573d75702123e29a27c0323934ca9a468e0b530845714be7b584dcef8a38085d8f7bb97c2fe8eceb021e73dd6edaad1750f2b9f0d87732e634871302fa154
+  languageName: node
+  linkType: hard
+
+"merge-options@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "merge-options@npm:3.0.4"
+  dependencies:
+    is-plain-obj: "npm:^2.1.0"
+  checksum: d86ddb3dd6e85d558dbf25dc944f3527b6bacb944db3fdda6e84a3f59c4e4b85231095f58b835758b9a57708342dee0f8de0dffa352974a48221487fe9f4584f
   languageName: node
   linkType: hard
 
@@ -8397,7 +8472,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.0, react-is@npm:^16.13.1":
+"react-is@npm:^16.13.0, react-is@npm:^16.13.1, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 5aa564a1cde7d391ac980bedee21202fc90bdea3b399952117f54fb71a932af1e5902020144fb354b4690b2414a0c7aafe798eb617b76a3d441d956db7726fdf
@@ -8431,6 +8506,22 @@ __metadata:
     react-native-svg:
       optional: true
   checksum: ac4749412e290ffe296504357d4b8758d3972dace3ee1111ea8ea78de4d45709b3c49d8964b62061da4959c6862ad99b277a0bad5b2007e6b24379f6158bf397
+  languageName: node
+  linkType: hard
+
+"react-native-paper@npm:^5.12.3":
+  version: 5.12.3
+  resolution: "react-native-paper@npm:5.12.3"
+  dependencies:
+    "@callstack/react-theme-provider": "npm:^3.0.9"
+    color: "npm:^3.1.2"
+    use-latest-callback: "npm:^0.1.5"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-safe-area-context: "*"
+    react-native-vector-icons: "*"
+  checksum: 4d019401524533a36799b4d572a2579592c2b611e90458e5fe07a092144b9dc6ec1e49fedd9af041dae40597741ac433845ec1cafcda5351a4a79453b5f09570
   languageName: node
   linkType: hard
 
@@ -10068,7 +10159,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-latest-callback@npm:^0.1.7":
+"use-latest-callback@npm:^0.1.5, use-latest-callback@npm:^0.1.7":
   version: 0.1.9
   resolution: "use-latest-callback@npm:0.1.9"
   peerDependencies:
@@ -10191,9 +10282,11 @@ __metadata:
   resolution: "weather-app@workspace:."
   dependencies:
     "@babel/core": "npm:^7.20.0"
+    "@react-native-async-storage/async-storage": "npm:^1.21.0"
     "@shopify/flash-list": "npm:^1.6.3"
     "@tanstack/react-query": "npm:^5.17.19"
     "@types/react": "npm:~18.2.45"
+    "@uidotdev/usehooks": "npm:^2.4.1"
     axios: "npm:^1.6.7"
     dayjs: "npm:^1.11.10"
     expo: "npm:^50.0.1"
@@ -10210,6 +10303,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-native: "npm:0.73.2"
+    react-native-paper: "npm:^5.12.3"
     react-native-reanimated: "npm:~3.6.0"
     react-native-safe-area-context: "npm:4.8.2"
     react-native-screens: "npm:~3.29.0"

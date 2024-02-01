@@ -17,11 +17,11 @@ export function ForecastSection({ hour }: { hour: Hour[] }) {
 		// console.log(newtime, timeStamp);
 		return timeStamp >= newtime;
 	});
-  
+
 	return (
 		<View className='items-start -top-10'>
 			<View className='max-h-68'>
-				<View className='flex-row justify-between'>
+				<View className='flex-row justify-between w-full'>
 					<Text className='px-10 text-xl font-bold text-slate-900 py-6'>
 						Today
 					</Text>

@@ -28,7 +28,7 @@ export function WeatherContentList({ current }) {
 	];
 	return (
 		<View
-			className='bg-white w-full max-w-md -top-20 flex-row p-8 rounded-[36px] justify-between'
+			className='bg-white w-full max-w-md -top-16 flex-row p-8 rounded-[36px] justify-between'
 			style={{ elevation: 4 }}>
 			{weatherItemData.map((item) => (
 				<WeatherContentItem

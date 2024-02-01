@@ -1,22 +1,17 @@
-import { ForecastSection } from "@/components/ForecastSection";
-import { BlurView } from "expo-blur";
-import { LinearGradient } from "expo-linear-gradient";
-import TopSection from "./TopSection";
-import { WeatherContentList } from "./WeatherContentList";
+import { ForecastSection } from '@/components/ForecastSection';
+import { BlurView } from 'expo-blur';
+import { LinearGradient } from 'expo-linear-gradient';
+import TopSection from './TopSection';
+import { WeatherContentList } from './WeatherContentList';
+import { SearchBar } from 'react-native-screens';
 
-
-type HomeProps={
+type HomeProps = {
 	current: Current;
 	hourData: Hour[];
 	location: string;
-}
+};
 
-
-export function Home({
-	current,
-	hourData,
-	location,
-}: HomeProps) {
+export function Home({ current, hourData, location }: HomeProps) {
 	return (
 		<LinearGradient
 			start={{ x: 0, y: 0.5 }}

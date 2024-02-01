@@ -14,7 +14,7 @@ import { router } from 'expo-router';
 
 const ForecastPage = () => {
 	const { top } = useSafeAreaInsets();
-	console.log(top);
+	// console.log(top);
 
 	const location = useLocation();
 
@@ -86,7 +86,7 @@ export default ForecastPage;
 
 function ForecastItem({ item, index }: { item: Hour; index: number }) {
 	const date = dayjs(item.time).format('DD/MMM HH:mm a');
-	console.log(index);
+	// console.log(index);
 	return (
 		<BlurView
 			intensity={80}

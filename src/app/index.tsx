@@ -5,27 +5,20 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { queryClient } from './_layout';
+import { useForegroundPermissions } from 'expo-location';
+import { useLocationStore } from 'store/store';
 // import forecastData from '../../forecast.json';
 
 export default function Page() {
-	const location = useLocation();
+	const locationData = useLocationStore((state) => state.location);
+	console.log(locationData);
 
-	if (location) {
-		console.log(location);
-	}
-
-	useEffect(() => {
-		if (location) {
-			queryClient.invalidateQueries();
-		}
-	}, [!!location]);
-
-	const coords = `${location?.coords?.latitude},${location?.coords?.longitude}`;
+	const coords = `${locationData?.coords?.latitude},${locationData?.coords?.longitude}`;
 	const { data, isLoading } = useQuery({
 		queryKey: ['weather', coords],
 		queryFn: async () => {
 			const data = await axios.get(
-				`http://api.weatherapi.com/v1/current.json?key=1b9a89cc87ef435e8da72135230412&q=${coords}&aqi=no`
+				`http://api.weatherapi.com/v1/current.json?key=${process.env.EXPO_PUBLIC_WEATHER_API_KEY}&q=${coords}&aqi=no`
 			);
 			return data.data;
 		},
@@ -34,7 +27,7 @@ export default function Page() {
 		queryKey: ['forecast', coords],
 		queryFn: async () => {
 			const data = await axios.get(
-				`http://api.weatherapi.com/v1/forecast.json?key=1b9a89cc87ef435e8da72135230412&q=${coords}&days=1&aqi=no&alerts=no`
+				`http://api.weatherapi.com/v1/forecast.json?key=${process.env.EXPO_PUBLIC_WEATHER_API_KEY}&q=${coords}&days=1&aqi=no&alerts=no`
 			);
 			return data.data;
 		},
@@ -48,7 +41,12 @@ export default function Page() {
 		);
 	}
 
-	if (!data || !forecastData || isLoading) return null;
+	if (!data || !forecastData || isLoading)
+		return (
+			<View className='flex-1 items-center justify-center'>
+				<ActivityIndicator size={50} />
+			</View>
+		);
 
 	const current = data?.current;
 	const { location: _location } = data;
