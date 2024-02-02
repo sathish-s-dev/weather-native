@@ -1,27 +1,35 @@
 {
-	"expo": {
-		"scheme": "acme",
-		"userInterfaceStyle": "automatic",
-		"orientation": "default",
-		"web": {
-			"output": "static",
-			"bundler": "metro"
-		},
-		"plugins": [
-			[
-				"expo-router",
-				{
-					"origin": "https://n"
-				}
-			],
-			[
-				"expo-location",
-				{
-					"locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
-				}
-			]
-		],
-		"name": "weather-app",
-		"slug": "weather-app"
-	}
+  "expo": {
+    "scheme": "acme",
+    "userInterfaceStyle": "automatic",
+    "orientation": "default",
+    "web": {
+      "output": "static",
+      "bundler": "metro"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://n"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ]
+    ],
+    "name": "weather-app",
+    "slug": "weather-app",
+    "extra": {
+      "router": {
+        "origin": "https://n"
+      },
+      "eas": {
+        "projectId": "3ce8da2b-ef0d-4999-8a7b-0010781b3d25"
+      }
+    }
+  }
 }
