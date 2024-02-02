@@ -1,0 +1,34 @@
+{
+	"data": [
+		{
+			"id": 147710,
+			"wikiDataId": "Q806464",
+			"name": "Bangalore Rural district",
+			"country": "India",
+			"countryCode": "IN",
+			"region": "Karnataka",
+			"regionCode": "KA",
+			"regionWdId": "Q1185",
+			"latitude": 13.22567,
+			"longitude": 77.57501,
+			"population": 990923
+		},
+		{
+			"id": 147700,
+			"wikiDataId": "Q806463",
+			"name": "Bangalore Urban district",
+			"country": "India",
+			"countryCode": "IN",
+			"region": "Karnataka",
+			"regionCode": "KA",
+			"regionWdId": "Q1185",
+			"latitude": 12.970213888,
+			"longitude": 77.560288888,
+			"population": 9621551
+		}
+	],
+	"metadata": {
+		"currentOffset": 0,
+		"totalCount": 2
+	}
+}

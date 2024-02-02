@@ -129,3 +129,29 @@ type Location = {
 	localtime_epoch: number;
 	localtime: string;
 };
+
+// location response
+
+interface LocationResponse {
+	data: CityData[];
+	metadata: Metadata;
+}
+
+interface Metadata {
+	currentOffset: number;
+	totalCount: number;
+}
+
+interface CityData {
+	id: number;
+	wikiDataId: string;
+	name: string;
+	country: string;
+	countryCode: string;
+	region: string;
+	regionCode: string;
+	regionWdId: string;
+	latitude: number;
+	longitude: number;
+	population: number;
+}

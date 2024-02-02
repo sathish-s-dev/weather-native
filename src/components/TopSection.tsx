@@ -12,7 +12,13 @@ const TopSection = ({ temp, condition, location }) => {
 	return (
 		<View className='justify-center w-full items-center flex-[1.3] relative'>
 			<IconButton
-				style={{ position: 'absolute', top: 50, right: 20, elevation: 5 }}
+				style={{
+					position: 'absolute',
+					top: 50,
+					right: 20,
+					elevation: 5,
+					backgroundColor: 'white',
+				}}
 				mode='contained'
 				iconColor='rgb(75 62 174)'
 				icon={'magnify'}
